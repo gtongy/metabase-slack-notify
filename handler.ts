@@ -37,18 +37,22 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
       .src(embedUrl, [sizes], { filename: dashboard.name.replace('/', '') })
       .dest('/tmp')
       .run();
-
+    const filepath = `/tmp/${dashboard.name.replace('/', '')}.png`;
     try {
       const web = new WebClient(process.env.SLACK_TOKEN);
       await web.files.upload({
         filename: `${dashboard.name}.png`,
-        file: fs.createReadStream(`/tmp/${dashboard.name.replace('/', '')}.png`),
+        file: fs.createReadStream(filepath),
         channels: process.env.SLACK_CHANNELS
       });
     } catch (error) {
       log.error(error.response.data);
     }
-    // TODO: remove files
+    try {
+      fs.unlinkSync(filepath);
+    } catch (err) {
+      console.error(err);
+    }
   });
 
   log.info('metabase slack notified!');
