@@ -10,9 +10,12 @@ const serverlessConfiguration: Serverless = {
     webpack: {
       webpackConfig: './webpack.config.js',
       includeModules: true
+    },
+    'serverless-layers': {
+      layersDeploymentBucket: "metabase-slack-notify-layer"
     }
   },
-  plugins: ['serverless-webpack'],
+  plugins: ['serverless-webpack', 'serverless-layers'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
@@ -31,7 +34,7 @@ const serverlessConfiguration: Serverless = {
       handler: 'handler.metabaseSlackNotify',
       events: [
         {
-          schedule: "cron(0 12 * * * *)"
+          schedule: "cron(0 12 * * ? *)"
         }
       ]
     }

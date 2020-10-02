@@ -1,11 +1,10 @@
 import { ScheduledHandler } from 'aws-lambda';
 import axios from 'axios';
-import * as fs from 'fs';
 import jwt from 'jsonwebtoken';
-import Pageres from 'pageres';
 import { WebClient } from '@slack/web-api';
 import 'source-map-support/register';
 import log from 'lambda-log';
+const chromeLambda = require('chrome-aws-lambda');
 
 export const metabaseSlackNotify: ScheduledHandler = async () => {
   const headers = {
@@ -24,7 +23,8 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
 
   if (enableEmbedDashboards.length <= 0) log.Info('dashboard is not exist');
 
-  enableEmbedDashboards.forEach(async dashboard => {
+  for (var i = 0; i < enableEmbedDashboards.length; i++) {
+    const dashboard = enableEmbedDashboards[i];
     const payload = {
       resource: { dashboard: dashboard.id },
       params: {},
@@ -32,28 +32,34 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
     };
     const token = jwt.sign(payload, process.env.METABASE_SECRET_KEY);
     const embedUrl = process.env.METABASE_SITE_URL + '/embed/dashboard/' + token + '#bordered=true&titled=true';
-    const sizes = '2000x100';
-    await new Pageres({ delay: 2 })
-      .src(embedUrl, [sizes], { filename: dashboard.name.replace('/', '') })
-      .dest('/tmp')
-      .run();
-    const filepath = `/tmp/${dashboard.name.replace('/', '')}.png`;
+    const defaultViewport = {
+      width: 1440,
+      height: 1080
+    };
+    const browser = await chromeLambda.puppeteer.launch({
+      args: chromeLambda.args,
+      executablePath: await chromeLambda.executablePath,
+      headless: chromeLambda.headless,
+      ignoreHTTPSErrors: true,
+      defaultViewport
+    });
+
+    const page = await browser.newPage();
+    await page.goto(embedUrl);
+    await page.waitFor(5000);
+    const buffer = await page.screenshot({ fullPage: true });
+    await browser.close();
     try {
       const web = new WebClient(process.env.SLACK_TOKEN);
       await web.files.upload({
         filename: `${dashboard.name}.png`,
-        file: fs.createReadStream(filepath),
+        file: buffer,
         channels: process.env.SLACK_CHANNELS
       });
     } catch (error) {
       log.error(error.response.data);
     }
-    try {
-      fs.unlinkSync(filepath);
-    } catch (err) {
-      console.error(err);
-    }
-  });
+  }
 
   log.info('metabase slack notified!');
 };
