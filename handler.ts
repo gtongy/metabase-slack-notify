@@ -33,9 +33,13 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
     const token = jwt.sign(payload, process.env.METABASE_SECRET_KEY);
     const embedUrl = process.env.METABASE_SITE_URL + '/embed/dashboard/' + token + '#bordered=true&titled=true';
     const defaultViewport = {
-      width: 1440,
-      height: 1080
+      width: 2000,
+      height: 100
     };
+    const readFontProcess = chromeLambda.font(
+      'https://raw.githack.com/minoryorg/Noto-Sans-CJK-JP/master/fonts/NotoSansCJKjp-Regular.ttf'
+    );
+    await readFontProcess;
     const browser = await chromeLambda.puppeteer.launch({
       args: chromeLambda.args,
       executablePath: await chromeLambda.executablePath,

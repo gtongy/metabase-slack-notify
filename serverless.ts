@@ -19,7 +19,7 @@ const serverlessConfiguration: Serverless = {
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
-    timeout: 30,
+    timeout: 60,
     memorySize: 1024,
     environment: {
       METABASE_SITE_URL: '${ssm:/metabase-slack-notify/METABASE_SITE_URL}',
@@ -34,7 +34,7 @@ const serverlessConfiguration: Serverless = {
       handler: 'handler.metabaseSlackNotify',
       events: [
         {
-          schedule: "cron(0 12 * * ? *)"
+          schedule: "cron(0 0 ? * MON-FRI *)"
         }
       ]
     }
