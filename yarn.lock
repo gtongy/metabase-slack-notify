@@ -85,10 +85,10 @@
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.0.tgz#2b35eccfcee7d38cd72ad99232fbd58bffb3c84d"
   integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
 
-"@types/serverless@1.78.0":
-  version "1.78.0"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.0.tgz#87b6b49d0569e30b4c11848d18647656587d8221"
-  integrity sha512-PLe48DDGTwmiPfY1QeNOv741uWxHpqDU0oijt3skF9OblJoMbjyhzO7zWoT2F+5hlg4VSbYSEZYDyxo7OMtOLA==
+"@types/serverless@1.78.1":
+  version "1.78.1"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.1.tgz#2cb29a4ca56ffe4ddd68dad8a562fc6b50d7d5e6"
+  integrity sha512-rj0clgglCtEEMJeAps/wbhhY79wOHRNaeHHuKb8rz/Hkq0LWCCoHZv5/PXXmcLKXl7XC359s+Q5tKnMzZ6FpzQ==
 
 "@types/yauzl@^2.9.1":
   version "2.9.1"
