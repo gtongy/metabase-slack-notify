@@ -67,7 +67,6 @@ export const getEnableEmbedDashboards = async (): Promise<EmbedDashboard[]> => {
   try {
     response = await axios.get(`${process.env.METABASE_SITE_URL}/api/dashboard`, { headers });
   } catch (error) {
-    console.log(error);
     log.error(error.response.data);
   }
   const enableEmbedDashboards = response.data
