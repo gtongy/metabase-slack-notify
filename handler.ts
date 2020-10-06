@@ -1,28 +1,19 @@
 import { ScheduledHandler } from 'aws-lambda';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import jwt from 'jsonwebtoken';
 import { WebClient } from '@slack/web-api';
 import 'source-map-support/register';
 import log from 'lambda-log';
+
 const chromeLambda = require('chrome-aws-lambda');
 
+interface EmbedDashboard {
+  id: number;
+  name: string;
+}
+
 export const metabaseSlackNotify: ScheduledHandler = async () => {
-  const headers = {
-    'X-Metabase-Session': process.env.METABASE_SESSION_ID,
-    'Content-Type': 'application/json'
-  };
-  let response;
-  try {
-    response = await axios.get(`${process.env.METABASE_SITE_URL}/api/dashboard`, { headers });
-  } catch (error) {
-    log.error(error.response.data);
-  }
-  const enableEmbedDashboards = response.data
-    .filter(item => item.enable_embedding === true)
-    .map(dashboard => ({ id: dashboard.id, name: dashboard.name }));
-
-  if (enableEmbedDashboards.length <= 0) log.Info('dashboard is not exist');
-
+  const enableEmbedDashboards: EmbedDashboard[] = await getEnableEmbedDashboards();
   for (var i = 0; i < enableEmbedDashboards.length; i++) {
     const dashboard = enableEmbedDashboards[i];
     const payload = {
@@ -64,6 +55,24 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
       log.error(error.response.data);
     }
   }
-
   log.info('metabase slack notified!');
+};
+
+export const getEnableEmbedDashboards = async (): Promise<EmbedDashboard[]> => {
+  const headers = {
+    'X-Metabase-Session': process.env.METABASE_SESSION_ID,
+    'Content-Type': 'application/json'
+  };
+  let response: AxiosResponse;
+  try {
+    response = await axios.get(`${process.env.METABASE_SITE_URL}/api/dashboard`, { headers });
+  } catch (error) {
+    console.log(error);
+    log.error(error.response.data);
+  }
+  const enableEmbedDashboards = response.data
+    .filter(item => item.enable_embedding === true)
+    .map(dashboard => ({ id: dashboard.id, name: dashboard.name }));
+  if (enableEmbedDashboards.length <= 0) log.Info('dashboard is not exist');
+  return enableEmbedDashboards;
 };
