@@ -1,7 +1,5 @@
-# アクション名
-name: CI
+name: metabase-slack-notify-workflow
 
-# タイミングを指定
 on:
   pull_request:
     branches: [master]
