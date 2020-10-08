@@ -4,7 +4,7 @@
   "description": "metabase slack notify graph image using serverless",
   "main": "handler.js",
   "scripts": {
-    "jest": "jest",
+    "test": "jest",
     "lint": "eslint"
   },
   "dependencies": {
