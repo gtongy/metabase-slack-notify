@@ -3,8 +3,8 @@ import axios, { AxiosResponse } from 'axios'
 import jwt from 'jsonwebtoken'
 import { WebClient } from '@slack/web-api'
 import 'source-map-support/register'
-const lambdalog = require('lambda-log')
 
+const lambdalog = require('lambda-log')
 const chromeLambda = require('chrome-aws-lambda')
 
 interface EmbedDashboard {
@@ -14,7 +14,7 @@ interface EmbedDashboard {
 
 export const metabaseSlackNotify: ScheduledHandler = async () => {
   const enableEmbedDashboards: EmbedDashboard[] = await getEnableEmbedDashboards()
-  for (var i = 0; i < enableEmbedDashboards.length; i++) {
+  for (let i = 0; i < enableEmbedDashboards.length; i++) {
     const dashboard = enableEmbedDashboards[i]
     const payload = {
       resource: { dashboard: dashboard.id },
