@@ -1,6 +1,6 @@
 module.exports = {
   setupFiles: ['./.jest/setEnvVars.js']
-};
+}
 
 module.exports = {
   roots: ['.'],
@@ -9,4 +9,4 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   }
-};
+}
