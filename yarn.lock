@@ -650,10 +650,10 @@
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.0.tgz#2b35eccfcee7d38cd72ad99232fbd58bffb3c84d"
   integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
 
-"@types/serverless@1.78.0":
-  version "1.78.0"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.0.tgz#87b6b49d0569e30b4c11848d18647656587d8221"
-  integrity sha512-PLe48DDGTwmiPfY1QeNOv741uWxHpqDU0oijt3skF9OblJoMbjyhzO7zWoT2F+5hlg4VSbYSEZYDyxo7OMtOLA==
+"@types/serverless@1.78.1":
+  version "1.78.1"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.1.tgz#2cb29a4ca56ffe4ddd68dad8a562fc6b50d7d5e6"
+  integrity sha512-rj0clgglCtEEMJeAps/wbhhY79wOHRNaeHHuKb8rz/Hkq0LWCCoHZv5/PXXmcLKXl7XC359s+Q5tKnMzZ6FpzQ==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -5845,10 +5845,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.9.7:
-  version "3.9.7"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
-  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
+typescript@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.3.tgz#153bbd468ef07725c1df9c77e8b453f8d36abba5"
+  integrity sha512-tEu6DGxGgRJPb/mVPIZ48e69xCn2yRmCgYmDugAVwmJ6o+0u1RI18eO7E7WBTLYLaEVVOhwQmcdhQHweux/WPg==
 
 unbzip2-stream@^1.3.3:
   version "1.4.3"
