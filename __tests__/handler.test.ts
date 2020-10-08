@@ -1,9 +1,20 @@
-import { getEnableEmbedDashboards, snapShotMetabaseGraph } from '../handler';
+import { getEnableEmbedDashboards, slackFileNotify, snapShotMetabaseGraph } from '../handler';
 import axios from 'axios';
 
 const chromeLambda = require('chrome-aws-lambda');
 
 jest.mock('axios');
+jest.mock('@slack/web-api', () => {
+  return {
+    WebClient: jest.fn().mockImplementation(() => {
+      return {
+        files: {
+          upload: () => {}
+        }
+      };
+    })
+  };
+});
 
 describe('getEnableEmbedDashboards', () => {
   beforeEach(() => {
@@ -67,5 +78,17 @@ describe('snapShotMetabaseGraph', () => {
   test('success snapshot', async () => {
     const result = await snapShotMetabaseGraph('http://test.com');
     expect(result).toEqual(screenshot);
+  });
+});
+
+describe('slackFileNotify', () => {
+  test('success slack notify', async () => {
+    await slackFileNotify(
+      {
+        id: 1,
+        name: 'dashboard1'
+      },
+      Buffer.alloc(20, 'Test')
+    );
   });
 });
