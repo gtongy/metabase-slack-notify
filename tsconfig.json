@@ -7,14 +7,9 @@
     "noUnusedParameters": true,
     "sourceMap": true,
     "target": "es2017",
+    "esModuleInterop": true,
     "outDir": "lib"
   },
-  "include": ["./**/*.ts"],
-  "exclude": [
-    "node_modules/**/*",
-    ".serverless/**/*",
-    ".webpack/**/*",
-    "_warmup/**/*",
-    ".vscode/**/*"
-  ]
+  "include": ["./**/*.ts", "__tests__/handler.test.js"],
+  "exclude": ["node_modules/**/*", ".serverless/**/*", ".webpack/**/*", "_warmup/**/*", ".vscode/**/*"]
 }

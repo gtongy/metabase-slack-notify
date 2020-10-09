@@ -1,8 +1,8 @@
-import type { Serverless } from 'serverless/aws';
+import type { Serverless } from 'serverless/aws'
 
 const serverlessConfiguration: Serverless = {
   service: {
-    name: 'metabase-slack-notify',
+    name: 'metabase-slack-notify'
   },
   frameworkVersion: '2',
   configValidationMode: 'warn',
@@ -12,7 +12,7 @@ const serverlessConfiguration: Serverless = {
       includeModules: true
     },
     'serverless-layers': {
-      layersDeploymentBucket: "metabase-slack-notify-layer"
+      layersDeploymentBucket: 'metabase-slack-notify-layer'
     }
   },
   plugins: ['serverless-webpack', 'serverless-layers'],
@@ -27,18 +27,18 @@ const serverlessConfiguration: Serverless = {
       METABASE_SESSION_ID: '${ssm:/metabase-slack-notify/METABASE_SESSION_ID}',
       SLACK_TOKEN: '${ssm:/metabase-slack-notify/SLACK_TOKEN}',
       SLACK_CHANNELS: '${ssm:/metabase-slack-notify/SLACK_CHANNELS}'
-    },
+    }
   },
   functions: {
     metabaseSlackNotify: {
       handler: 'handler.metabaseSlackNotify',
       events: [
         {
-          schedule: "cron(0 0 ? * MON-FRI *)"
+          schedule: 'cron(0 0 ? * MON-FRI *)'
         }
       ]
     }
   }
 }
 
-module.exports = serverlessConfiguration;
+module.exports = serverlessConfiguration
