@@ -1,4 +1,4 @@
-import { getEnableEmbedDashboards, slackFileNotify, snapShotMetabaseGraph } from '../handler'
+import { getEnableEmbedDashboards, slackFileNotify, screenshotMetabaseGraph } from '../handler'
 import axios from 'axios'
 
 const chromeLambda = require('chrome-aws-lambda')
@@ -66,7 +66,7 @@ describe('getEnableEmbedDashboards', () => {
   })
 })
 
-describe('snapShotMetabaseGraph', () => {
+describe('screenshotMetabaseGraph', () => {
   const screenshot = Buffer.alloc(20, 'Test')
   const mockedPage = {
     goto: jest.fn(),
@@ -75,8 +75,8 @@ describe('snapShotMetabaseGraph', () => {
   }
   const mockedBrowser = { newPage: jest.fn().mockResolvedValue(mockedPage), close: jest.fn() }
   jest.spyOn(chromeLambda.puppeteer, 'launch').mockResolvedValue(mockedBrowser)
-  test('success snapshot', async () => {
-    const result = await snapShotMetabaseGraph('http://test.com')
+  test('success screenshot', async () => {
+    const result = await screenshotMetabaseGraph('http://test.com')
     expect(result).toEqual(screenshot)
   })
 })
