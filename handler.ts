@@ -27,7 +27,7 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
       'https://raw.githack.com/minoryorg/Noto-Sans-CJK-JP/master/fonts/NotoSansCJKjp-Regular.ttf'
     )
     await readFontProcess
-    const buffer = await snapShotMetabaseGraph(embedUrl)
+    const buffer = await screenshotMetabaseGraph(embedUrl)
     await slackFileNotify(dashboard, buffer)
   }
   lambdalog.info('metabase slack notified!')
@@ -52,7 +52,7 @@ export const getEnableEmbedDashboards = async (): Promise<EmbedDashboard[]> => {
   return enableEmbedDashboards
 }
 
-export const snapShotMetabaseGraph = async (
+export const screenshotMetabaseGraph = async (
   embedUrl: string,
   defaultViewport: { width: number; height: number } = { width: 2000, height: 100 }
 ): Promise<Buffer> => {
