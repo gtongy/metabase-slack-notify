@@ -2,6 +2,19 @@
 
 This function is metabase graph to notify slack.
 
+## Flow 
+
+![Design](https://github.com/gtongy/metabase-slack-notify/blob/master/images/metabase-slack-notify.png)
+
+ - AWS Lambda configuration management with Serverless Framework
+ - Launch Puppeteer on AWS Lambda and take a screenshot against the Metabase dashboard
+ - Post the photos to slack.
+ - Scheduled execution of Lambda functions with CloudWatch Events
+
+## Post
+
+[Metabaseのグラフをslackへ通知するbotをServerless Framework + Puppeteerで作ってみた](https://kaminashi-developer.hatenablog.jp/entry/2020/10/12/metabase-slack-notify)
+
 ## Requirement
 
 - serverless framework
@@ -33,3 +46,4 @@ $ serverless invoke local -f metabaseSlackNotify \
 ```
 $ serverless deploy -v --region ap-northeast-1 --stage production
 ```
+
