@@ -13,7 +13,8 @@ interface EmbedDashboard {
 }
 
 export const metabaseSlackNotify: ScheduledHandler = async () => {
-  const enableEmbedDashboards: EmbedDashboard[] = await getEnableEmbedDashboards()
+  const sessionID = await getSessionID()
+  const enableEmbedDashboards: EmbedDashboard[] = await getEnableEmbedDashboards(sessionID)
   for (let i = 0; i < enableEmbedDashboards.length; i++) {
     const dashboard = enableEmbedDashboards[i]
     const payload = {
@@ -33,9 +34,27 @@ export const metabaseSlackNotify: ScheduledHandler = async () => {
   lambdalog.info('metabase slack notified!')
 }
 
-export const getEnableEmbedDashboards = async (): Promise<EmbedDashboard[]> => {
+export const getSessionID = async (): Promise<string> => {
+  const data = {
+    username: process.env.METABASE_USERNAME,
+    password: process.env.METABASE_PASSWORD
+  }
   const headers = {
-    'X-Metabase-Session': process.env.METABASE_SESSION_ID,
+    'Content-Type': 'application/json'
+  }
+  let response: AxiosResponse
+  try {
+    response = await axios.post(`${process.env.METABASE_SITE_URL}/api/session`, data, { headers })
+  } catch (error) {
+    lambdalog.error(error.response.data)
+    return ''
+  }
+  return response.data.id
+}
+
+export const getEnableEmbedDashboards = async (sessionID: string): Promise<EmbedDashboard[]> => {
+  const headers = {
+    'X-Metabase-Session': sessionID,
     'Content-Type': 'application/json'
   }
   let response: AxiosResponse

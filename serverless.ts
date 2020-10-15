@@ -22,9 +22,10 @@ const serverlessConfiguration: Serverless = {
     timeout: 60,
     memorySize: 1024,
     environment: {
+      METABASE_USERNAME: '${ssm:/metabase-slack-notify/METABASE_USERNAME}',
+      METABASE_PASSWORD: '${ssm:/metabase-slack-notify/METABASE_PASSWORD}',
       METABASE_SITE_URL: '${ssm:/metabase-slack-notify/METABASE_SITE_URL}',
       METABASE_SECRET_KEY: '${ssm:/metabase-slack-notify/METABASE_SECRET_KEY}',
-      METABASE_SESSION_ID: '${ssm:/metabase-slack-notify/METABASE_SESSION_ID}',
       SLACK_TOKEN: '${ssm:/metabase-slack-notify/SLACK_TOKEN}',
       SLACK_CHANNELS: '${ssm:/metabase-slack-notify/SLACK_CHANNELS}'
     }

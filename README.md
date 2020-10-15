@@ -36,7 +36,8 @@ $ npm install -g serverless
 $ serverless invoke local -f metabaseSlackNotify \
    -e METABASE_SITE_URL="" \
    -e METABASE_SECRET_KEY="" \
-   -e METABASE_SESSION_ID="" \
+   -e METABASE_USERNAME="" \
+   -e METABASE_PASSWORD="" \
    -e SLACK_TOKEN="" \
    -e SLACK_CHANNELS=""
 ```
