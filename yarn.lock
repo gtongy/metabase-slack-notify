@@ -715,10 +715,10 @@
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.0.tgz#2b35eccfcee7d38cd72ad99232fbd58bffb3c84d"
   integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
 
-"@types/serverless@1.78.1":
-  version "1.78.1"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.1.tgz#2cb29a4ca56ffe4ddd68dad8a562fc6b50d7d5e6"
-  integrity sha512-rj0clgglCtEEMJeAps/wbhhY79wOHRNaeHHuKb8rz/Hkq0LWCCoHZv5/PXXmcLKXl7XC359s+Q5tKnMzZ6FpzQ==
+"@types/serverless@1.78.3":
+  version "1.78.3"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.3.tgz#2f6a412e08b72ce714d119c9930e9d49853154cc"
+  integrity sha512-7iOA3XnEii+qZspnrvNIxCd1JjID3WBqFw0dN0d+eeKyRO1wQdQf/o4e0C4nc1uB2e/WzleGUxVJxMEjBXAwXw==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.0"
