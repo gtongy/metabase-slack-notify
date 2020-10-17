@@ -42,7 +42,7 @@ describe('getEnableEmbedDashboards', () => {
     }
     const mockedAxios = axios as jest.Mocked<typeof axios>
     mockedAxios.get.mockResolvedValue(response)
-    const embedDashboards = await getEnableEmbedDashboards()
+    const embedDashboards = await getEnableEmbedDashboards('session')
     expect(embedDashboards).toEqual([
       { id: 1, name: 'dashboard1' },
       { id: 3, name: 'dashboard3' }
@@ -61,7 +61,7 @@ describe('getEnableEmbedDashboards', () => {
     const mockedAxios = axios as jest.Mocked<typeof axios>
     mockedAxios.get.mockRejectedValueOnce(error)
     process.on('unhandledRejection', console.dir)
-    const dashboards = await getEnableEmbedDashboards()
+    const dashboards = await getEnableEmbedDashboards('session')
     expect(dashboards).toEqual([])
   })
 })
