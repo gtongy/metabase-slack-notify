@@ -12,7 +12,7 @@
     "axios": "^0.20.0",
     "chrome-aws-lambda": "^5.3.1",
     "jsonwebtoken": "^8.5.1",
-    "lambda-log": "^2.4.0",
+    "lambda-log": "^3.0.0",
     "puppeteer-core": "^5.3.1",
     "source-map-support": "^0.5.10"
   },
