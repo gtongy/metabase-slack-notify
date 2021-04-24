@@ -23,7 +23,7 @@
     "@types/serverless": "1.78.26",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
-    "eslint": "7.24.0",
+    "eslint": "7.25.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
