@@ -27,7 +27,7 @@
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-prettier": "4.0.0",
-    "jest": "27.2.5",
+    "jest": "27.3.1",
     "prettier": "2.4.1",
     "puppeteer": "10.4.0",
     "serverless-layers": "2.5.1",
