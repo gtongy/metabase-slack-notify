@@ -17,7 +17,7 @@
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {
-    "@types/aws-lambda": "8.10.88",
+    "@types/aws-lambda": "8.10.89",
     "@types/jest": "27.0.3",
     "@types/node": "16.11.17",
     "@types/serverless": "1.78.40",
