@@ -4982,10 +4982,10 @@ serialize-javascript@^6.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-serverless-layers@2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/serverless-layers/-/serverless-layers-2.5.2.tgz#c88feb3c3085d4ca6ecc43d49a6f7710d926ac36"
-  integrity sha512-GPtmmQELWUtidppLI6M3eBE/UhJSsmpMxB+fqlC6AfMMw7RVzJy4WydCSNS3VY8Djj67ImM3MbyU4WzcZW0Tdg==
+serverless-layers@2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/serverless-layers/-/serverless-layers-2.5.3.tgz#88a0ecb7a12fbd0e7fdc811e6197d1f2765d3850"
+  integrity sha512-tZoO1y0zeNmjXa+3IT6jDNwweYBOjltAZqehXm6PDt8UO5vtfaEfKAynyyblW049OhHRSA4LwhXHt/jfH3mIjA==
   dependencies:
     "@babel/runtime" "^7.3.1"
     archiver "^3.0.0"
