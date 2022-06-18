@@ -28,7 +28,7 @@
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-prettier": "4.0.0",
     "jest": "27.5.1",
-    "prettier": "2.6.2",
+    "prettier": "2.7.1",
     "puppeteer": "14.3.0",
     "serverless-layers": "2.5.4",
     "serverless-webpack": "5.7.1",
