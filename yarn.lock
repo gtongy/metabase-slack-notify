@@ -1839,10 +1839,10 @@ buffer@^5.1.0, buffer@^5.2.1, buffer@^5.5.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
 
-builtin-modules@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.1.0.tgz#aad97c15131eb76b65b50ef208e7584cd76a7484"
-  integrity sha512-k0KL0aWZuBt2lrxrcASWDfwOLMnodeQjodT/1SxEQAXsHANgo6ZC/VEaSEHCXt7aSTZ4/4H5LKa+tBXmW7Vtvw==
+builtin-modules@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.3.0.tgz#cae62812b89801e9656336e46223e030386be7b6"
+  integrity sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==
 
 call-bind@^1.0.0, call-bind@^1.0.2:
   version "1.0.2"
@@ -3081,12 +3081,12 @@ is-boolean-object@^1.1.0:
     call-bind "^1.0.2"
     has-tostringtag "^1.0.0"
 
-is-builtin-module@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/is-builtin-module/-/is-builtin-module-3.1.0.tgz#6fdb24313b1c03b75f8b9711c0feb8c30b903b00"
-  integrity sha512-OV7JjAgOTfAFJmHZLvpSTb4qi0nIILDV1gWPYDnDJUTNFM5aGlRAhk4QcT8i7TuAleeEV5Fdkqn3t4mS+Q11fg==
+is-builtin-module@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/is-builtin-module/-/is-builtin-module-3.2.0.tgz#bb0310dfe881f144ca83f30100ceb10cf58835e0"
+  integrity sha512-phDA4oSGt7vl1n5tJvTWooWWAsXLY+2xCnxNqvKhGEzujg+A43wPlPOyDg3C8XQHN+6k/JTQWJ/j0dQh/qr+Hw==
   dependencies:
-    builtin-modules "^3.0.0"
+    builtin-modules "^3.3.0"
 
 is-callable@^1.1.4:
   version "1.2.2"
@@ -4678,16 +4678,16 @@ serverless-layers@2.5.4:
     semver "^7.3.2"
     slugify "^1.4.0"
 
-serverless-webpack@5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/serverless-webpack/-/serverless-webpack-5.8.0.tgz#930b9c6cbc8a60e87f7207fd4b23a7e20e4770ea"
-  integrity sha512-hN45J+jWpVb8lYFfteqQhE2qlDAoKl1UM7KVJSQK9S2nyJVqgbxGI02WpCCDgofqFUXO1hEyNFnCnrW8dDG3FQ==
+serverless-webpack@5.9.1:
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/serverless-webpack/-/serverless-webpack-5.9.1.tgz#46bf25d4b013b2bc1e5522c8a2eddee37506f439"
+  integrity sha512-Xkry+xNTjc8MVPXluePxxDhy8/7ZYL8gs0YuxuVbrrAyEbeviPWKGxHg41559fcQEpEoYN/1Ko29b5303iv1vQ==
   dependencies:
     archiver "^5.3.1"
     bluebird "^3.7.2"
     fs-extra "^9.1.0"
     glob "^7.2.3"
-    is-builtin-module "^3.1.0"
+    is-builtin-module "^3.2.0"
     lodash "^4.17.21"
     semver "^7.3.7"
   optionalDependencies:
